@@ -1,0 +1,18 @@
+.container{
+    text-align: center;  
+    font-size: xx-large;
+    color: crimson;
+  }
+.container2{
+    font-size: medium;
+    text-align: center;  
+  }
+  .container2 button{
+    background-color: blueviolet;
+    border-radius: 15px;
+    color: white;
+  }
+  .logout{
+    text-align: right;
+    margin-right: 25%;
+  }
