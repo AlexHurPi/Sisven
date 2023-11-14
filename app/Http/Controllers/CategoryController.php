@@ -13,8 +13,12 @@ class CategoryController extends Controller
      */
     public function index()
     {         
-       $categories = Category::all();      
-       return view("categories.index",["categories" => $categories]);
+       //$categories = Category::all();      
+       $categories =DB::table('tb_category')
+       ->join('tb_products', 'tb_category.id', "=", 'tb_products.category_id')
+       ->select('tb_category.*', "tb_products.name")
+       ->get();
+       return view("categories.index",['categories' => $categories]);
     }
 
     /**
