@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 include __DIR__.'/auth.php';
 /*
@@ -13,11 +14,11 @@ include __DIR__.'/auth.php';
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
-
 Route::get('/dashboard', function () {
     return view('dashboard');
+   
+
+
 })->middleware(['auth', 'verified'])->name('dashboard');
 
     Route::middleware('auth')->group(function () {
