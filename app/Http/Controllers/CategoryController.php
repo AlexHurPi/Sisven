@@ -14,9 +14,8 @@ class CategoryController extends Controller
     public function index()
     {         
        //$categories = Category::all();      
-       $categories =DB::table('tb_category')
-       ->join('tb_products', 'tb_category.id', "=", 'tb_products.category_id')
-       ->select('tb_category.*', "tb_products.name")
+       $categories =DB::table('category')       
+       ->select('category.*')
        ->get();
        return view("categories.index",['categories' => $categories]);
     }
@@ -26,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories = DB::table('tb_category')
+        $categories = DB::table('category')
         ->orderBy("name")
         ->get();
         return view('categories.new',['categories'=>$categories]);
@@ -39,13 +38,13 @@ class CategoryController extends Controller
     {
         $category = new Category();
         $category ->name =$request->name;
-        $category ->id =$request->id;
+        $category ->description =$request->description;
         $category->save();
 
-        $categories = DB::table('tb_category')       
-        ->select('tb_category.*') 
+        $categories = DB::table('category')       
+        ->select('category.*') 
         ->get();
-        return view('category.index',['categories'=>$categories]);
+        return view('categories.index',['categories'=>$categories]);
     }
 
     /**
@@ -61,10 +60,10 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $category = Category::find($id);
-        $category = DB::table('tb_category')
+        $categories = Category::find($id);
+        $categories = DB::table('category')
         ->get();
-        return view('categories.edit',['category'=>$category]);
+        return view('categories.edit',['categories'=>$categories]);
     }
 
     /**
@@ -77,10 +76,10 @@ class CategoryController extends Controller
        $category->id = $request->code;
        $category->save();
 
-       $categories = DB::table('tb_category')       
-       ->select('tb_category.*')
+       $categories = DB::table('category')       
+       ->select('category.*')
        ->get();
-        return view('category.index',['categories'=>$categories]);
+        return view('categories.index',['categories'=>$categories]);
     }
 
     /**
@@ -92,9 +91,9 @@ class CategoryController extends Controller
         $category->delete();
         
         
-        $categories = DB::table('tb_category')        
-        ->select('tb_category.*')
+        $categories = DB::table('category')        
+        ->select('category.*')
         ->get();
-        return view('category.index',['category'=>$categories]);
+        return view('categories.index',['categories'=>$categories]);
     }
 }
