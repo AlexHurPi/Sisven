@@ -26,7 +26,7 @@ class CategoryController extends Controller
     public function create()
     {
         $categories = DB::table('category')
-        ->orderBy("name")
+        ->orderBy('name')
         ->get();
         return view('categories.new',['categories'=>$categories]);
     }
@@ -37,6 +37,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $category = new Category();
+        $category ->id = $request -> id;
         $category ->name =$request->name;
         $category ->description =$request->description;
         $category->save();
@@ -60,20 +61,22 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $categories = Category::find($id);
+        $category = Category::find($id);
         $categories = DB::table('category')
+        ->orderBy('name')
         ->get();
-        return view('categories.edit',['categories'=>$categories]);
+        return view('categories.edit',['category'=>$category]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
        $category = Category::find($id);
+       //$category->id = $request->id; no va id porque este campo no se puede editar
        $category->name = $request->name;       
-       $category->id = $request->code;
+       $category->description =$request->description;
        $category->save();
 
        $categories = DB::table('category')       
@@ -88,8 +91,7 @@ class CategoryController extends Controller
     public function destroy(string $id)
     {
         $category = Category::find($id);        
-        $category->delete();
-        
+        $category->delete();        
         
         $categories = DB::table('category')        
         ->select('category.*')
