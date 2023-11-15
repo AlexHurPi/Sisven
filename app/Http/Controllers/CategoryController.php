@@ -29,7 +29,7 @@ class CategoryController extends Controller
         $categories = DB::table('tb_category')
         ->orderBy("name")
         ->get();
-        return view('category.new',['categories'=>$categories]);
+        return view('categories.new',['categories'=>$categories]);
     }
 
     /**
