@@ -61,7 +61,10 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::find($id);
+        $category = DB::table('tb_category')
+        ->get();
+        return view('categories.edit',['category'=>$category]);
     }
 
     /**
@@ -69,7 +72,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+       $category = Category::find($id);
+       $category->name = $request->name;       
+       $category->id = $request->code;
+       $category->save();
+
+       $categories = DB::table('tb_category')       
+       ->select('tb_category.*')
+       ->get();
+        return view('category.index',['categories'=>$categories]);
     }
 
     /**

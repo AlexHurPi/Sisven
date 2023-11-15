@@ -32,6 +32,9 @@
             <td>{{ $category->name }}</td>
             <td>{{ $category->description }}</td>
             <td> 
+              <a href="{{ route('categories.edit', ['category' => $category->id]) }}"
+                class="btn btn-info">
+                Edit</a>
               <form
                   action="{{ route('categories.destroy', ['category' => $category->id]) }}"
                   method='POST' style="display: inline-block">

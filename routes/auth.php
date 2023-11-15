@@ -16,6 +16,8 @@ Route::get('/categories',[CategoryController::class, 'index']);
 Route::post('/categories',[CategoryController::class, 'store']);
 Route::get('/categories/create',[CategoryController::class, 'create']);
 Route::delete('/categories/{category}',[CategoryController::class, 'destroy']);
+Route::put('/categories/{category}',[CategoryController::class, 'update']);
+Route::get('/categories/{category}/edit',[ComunaController::class, 'edit']);
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
