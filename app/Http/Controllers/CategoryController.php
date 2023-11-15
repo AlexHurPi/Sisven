@@ -42,7 +42,8 @@ class CategoryController extends Controller
         $category ->id =$request->id;
         $category->save();
 
-        $categories = DB::table('tb_category')        
+        $categories = DB::table('tb_category')       
+        ->select('tb_category.*') 
         ->get();
         return view('category.index',['categories'=>$categories]);
     }
@@ -76,6 +77,13 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::find($id);        
+        $category->delete();
+        
+        
+        $categories = DB::table('tb_category')        
+        ->select('tb_category.*')
+        ->get();
+        return view('category.index',['category'=>$categories]);
     }
 }

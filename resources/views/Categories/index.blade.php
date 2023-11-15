@@ -31,7 +31,16 @@
             <th scope="row">{{ $category->id }}</th>
             <td>{{ $category->name }}</td>
             <td>{{ $category->description }}</td>
-            <td> <span>Actions</span></td>                
+            <td> 
+              <form
+                  action="{{ route('categories.destroy', ['category' => $category->id]) }}"
+                  method='POST' style="display: inline-block">
+                  @method('delete')
+                  @csrf
+                  <input
+                  class="btn btn-danger" type="submit" value="Delete">
+              </form>            
+            </td>                
         </tr>
         @endforeach    
     </tbody>
