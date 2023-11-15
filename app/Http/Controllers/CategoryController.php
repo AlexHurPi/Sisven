@@ -26,7 +26,10 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $categories = DB::table('tb_category')
+        ->orderBy("name")
+        ->get();
+        return view('category.new',['categories'=>$categories]);
     }
 
     /**
@@ -34,7 +37,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category();
+        $category ->name =$request->name;
+        $category ->id =$request->id;
+        $category->save();
+
+        $categories = DB::table('tb_category')        
+        ->get();
+        return view('category.index',['categories'=>$categories]);
     }
 
     /**

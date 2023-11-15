@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 
 Route::get('/categories',[CategoryController::class, 'index']);
+Route::post('/categories',[CategoryController::class, 'store']);
+Route::get('/categories/create',[CategoryController::class, 'create']);
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
