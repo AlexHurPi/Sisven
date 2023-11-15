@@ -20,13 +20,13 @@
     
     <h1>SISVEN</h1>
     </div>
-    <div class="container2">
-|       <button><h2>Customers</h2></button>
+    <div class="container2">        
+        <a href="{{ route('customers.index') }}" class="btn btn-success">Customers</a>
         <button><h2>Invoices</h2></button>
         <button><h2>Pay Mode</h2></button>
         <button><h2>Details</h2></button>
         <button><h2>Products</h2></button>
-        <button><h2>Categories</h2></button>
+        <a href="{{route('categories.index') }}" class="btn btn-success">Categories</a>
     </div>
     <div class="logout">
         <br>
@@ -42,7 +42,7 @@
         <br>
         <br>
         
-        <a type="button" class="btn btn-primary" href="dashboard">Profile</a>
+        <a type="button" class="btn btn-primary" href="dashboard">Profile</a>        
     </div>
 </body>
 </html>
