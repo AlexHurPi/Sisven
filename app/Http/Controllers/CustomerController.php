@@ -25,7 +25,9 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        $customers = DB::table('customers')        
+        ->get();
+        return view('customers.new',['customers'=>$customers]);
     }
 
     /**
@@ -33,7 +35,21 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $customer = new Customer();
+        //$customer ->id = $request -> id; este campo se inhabilito debido a que estaba ocasionando que la base de datos autoincrementara de 2 en 2 en lugar de 1 en 1. 
+        $customer ->document_number =$request->document_number;
+        $customer ->first_name =$request->first_name;
+        $customer ->last_name =$request->last_name;
+        $customer ->address =$request->address;
+        $customer ->birthday =$request->birthday;
+        $customer ->phone_number =$request->phone_number;
+        $customer ->email =$request->email;
+        $customer->save();
+
+        $customers = DB::table('customers')       
+        ->select('customers.*') 
+        ->get();
+        return view('customers.index',['customers'=>$customers]);
     }
 
     /**

@@ -39,7 +39,7 @@
             <td>{{ $customer->last_name }}</td>
             <td>{{ $customer->address }}</td>
             <td>{{ $customer->birthday }}</td>
-            <td>{{ $customer->phone_mumber }}</td>
+            <td>{{ $customer->phone_number }}</td>
             <td>{{ $customer->email }}</td>
             <td> 
               <a href="{{ route('customers.edit', ['customer' => $customer->id]) }}"

@@ -49,7 +49,7 @@
   </div>
   <label for="description">Phone Number</label>
   <div class="mb-3">
-    <input type="text" required class="form-control" id="phone_number" aria-describedby="birthdayHelp"
+    <input type="text" required class="form-control" id="phone_number" aria-describedby="phone_numberHelp"
     name="phone_number" placeholder="phone_number">   
   </div>
   <label for="description">E-mail</label>
