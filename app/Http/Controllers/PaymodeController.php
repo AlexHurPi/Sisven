@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Customer;
+use App\Models\Paymode;
 use Illuminate\Support\Facades\DB;
 
 class PaymodeController extends Controller
@@ -35,21 +35,16 @@ class PaymodeController extends Controller
      */
     public function store(Request $request)
     {
-        $customer = new Customer();
+        $paymode = new Paymode();
         //$customer ->id = $request -> id; este campo se inhabilito debido a que estaba ocasionando que la base de datos autoincrementara de 2 en 2 en lugar de 1 en 1. 
-        $customer ->document_number =$request->document_number;
-        $customer ->first_name =$request->first_name;
-        $customer ->last_name =$request->last_name;
-        $customer ->address =$request->address;
-        $customer ->birthday =$request->birthday;
-        $customer ->phone_number =$request->phone_number;
-        $customer ->email =$request->email;
-        $customer->save();
+        $paymode ->name =$request->name;
+        $paymode ->observation =$request->observation;        
+        $paymode->save();
 
-        $customers = DB::table('customers')       
-        ->select('customers.*') 
+        $paymodes = DB::table('paymodes')       
+        ->select('paymodes.*') 
         ->get();
-        return view('customers.index',['customers'=>$customers]);
+        return view('paymode.index',['paymodes'=>$paymodes]);
     }
 
     /**
@@ -65,10 +60,10 @@ class PaymodeController extends Controller
      */
     public function edit(string $id)
     {
-        $customer = Customer::find($id);
-        $customers = DB::table('customers')        
+        $paymode = Paymode::find($id);
+        $paymode = DB::table('paymodes')        
         ->get();
-        return view('customers.edit',['customer'=>$customer]);
+        return view('paymode.edit',['paymode'=>$paymode]);
     }
 
     /**
@@ -76,21 +71,16 @@ class PaymodeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $customer = Customer::find($id);
+        $paymode = Paymode::find($id);
         //$category->id = $request->id; no va id porque este campo no se puede editar
-        $customer->document_number = $request->document_number;
-        $customer->first_name = $request->first_name;
-        $customer->last_name = $request->last_name;
-        $customer->address = $request->address;
-        $customer->birthday = $request->birthday;
-        $customer->phone_number = $request->phone_number;
-        $customer->email = $request->email;        
-        $customer->save();
+        $paymode->name = $request->name;
+        $paymode->observation = $request->observation;             
+        $paymode->save();
  
-        $customers = DB::table('customers')       
-        ->select('customers.*')
+        $paymodes = DB::table('paymodes')       
+        ->select('paymodes.*')
         ->get();
-         return view('customers.index',['customers'=>$customers]);
+         return view('paymode.index',['paymodes'=>$paymodes]);
     }
 
     /**
@@ -98,12 +88,12 @@ class PaymodeController extends Controller
      */
     public function destroy(string $id)
     {
-        $customer = Customer::find($id);        
-        $customer->delete();        
+        $paymode = Paymode::find($id);        
+        $paymode->delete();        
         
-        $customers = DB::table('customers')        
-        ->select('customers.*')
+        $paymodes = DB::table('paymodes')        
+        ->select('paymodes.*')
         ->get();
-        return view('customers.index',['customers'=>$customers]);
+        return view('paymode.index',['paymodes'=>$paymodes]);
     }
 }
