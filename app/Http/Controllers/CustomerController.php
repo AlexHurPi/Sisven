@@ -98,12 +98,12 @@ class CustomerController extends Controller
      */
     public function destroy(string $id)
     {
-        $category = Category::find($id);        
-        $category->delete();        
+        $customer = Customer::find($id);        
+        $customer->delete();        
         
-        $categories = DB::table('category')        
-        ->select('category.*')
+        $customers = DB::table('customers')        
+        ->select('customers.*')
         ->get();
-        return view('categories.index',['categories'=>$categories]);
+        return view('customers.index',['customers'=>$customers]);
     }
 }
