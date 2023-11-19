@@ -24,3 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/customers',[CustomerController::class, 'index'])->name('customers');
 Route::get('/categories',[CategoryController::class, 'index'])->name('categories');
+Route::get('/paymodes',[PaymodeController::class, 'index'])->name('paymodes');
+Route::get('/products',[ProductController::class, 'index'])->name('products');
