@@ -42,6 +42,13 @@ Route::get('/dashboard', function () {
     Route::put('/paymodes/{paymode}',[PaymodeController::class, 'update'])->name('paymodes.update');
     Route::get('/paymodes/{paymode}/edit',[PaymodeController::class, 'edit'])->name('paymodes.edit');
     
+    Route::get('/products',[ProductController::class, 'index'])->name('products.index');
+    Route::post('/products',[ProductController::class, 'store'])->name('products.store');
+    Route::get('/products/create',[ProductController::class, 'create'])->name('products.create');
+    Route::delete('/products/{product}',[ProductController::class, 'destroy'])->name('products.destroy');
+    Route::put('/products/{product}',[ProductController::class, 'update'])->name('products.update');
+    Route::get('/products/{product}/edit',[ProductController::class, 'edit'])->name('products.edit');
+
     Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

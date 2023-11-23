@@ -17,7 +17,31 @@
                     </x-nav-link>
                 </div>
             </div>
-
+            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <x-nav-link :href="route('customers.index')" :active="request()
+                ->routeIs('customers.index')"> 
+                {{ __('Customers') }} 
+              </x-nav-link> 
+          </div>   
+            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <x-nav-link :href="route('products.index')" :active="request()
+                ->routeIs('products.index')"> 
+                {{ __('Products') }} 
+              </x-nav-link> 
+          </div>   
+          <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+            <x-nav-link :href="route('categories.index')" :active="request()
+            ->routeIs('categories.index')"> 
+            {{ __('Categories') }} 
+          </x-nav-link> 
+      </div>   
+      <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+        <x-nav-link :href="route('paymodes.index')" :active="request()
+        ->routeIs('paymodes.index')"> 
+        {{ __('Paymodes') }} 
+      </x-nav-link> 
+  </div>   
+       
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
