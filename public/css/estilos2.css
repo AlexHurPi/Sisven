@@ -1,5 +1,12 @@
 .main h2{
 background: blueviolet;
 color: white;
-
+border-radius: 20px;
+text-align: center;
 }
+.main input{
+background-color:rgb(216, 72, 72);
+}
+.dash image{
+    
+}   
