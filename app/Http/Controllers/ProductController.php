@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         $products =DB::table('products')       
-        ->join('categories', 'products.categoryId', '=', 'categories.id')
+        ->join('category', 'products.category_id', '=', 'category.name')
         ->select('products.*', 'category.name')
         ->get();
         return view('products.index',['products' => $products]);
@@ -26,8 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = DB::table('categories')
-        ->orderBy("namec")
+        $categories = DB::table('category')
+        ->orderBy("name")
         ->get();
         return view('products.new',['categories'=>$categories]);
     }

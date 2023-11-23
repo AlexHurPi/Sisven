@@ -53,7 +53,7 @@
       id="categoryId" name="code" required>
         <option selected disabled value="">Choose one...</option>
         @foreach ($categories as $category)
-        <option value="{{$category->id}}">{{$category->namec}}</option>
+        <option value="{{$category->id}}">{{$category->name}}</option>
       @endforeach
       </select>
         <div class="mt-3">
