@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories =DB::table('category')       
-        ->select('category.*')
+        $categories =DB::table('categories')       
+        ->select('categories.*')
         ->get();
         return json_encode(['categories' => $categories]); 
     }
@@ -26,9 +26,10 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $category = new Category();       
-        $category ->name = $request->name;
+        $category ->namec = $request->namec;
         $category ->description =$request->description;
-        $category->save();       
+        $category->save();    
+           
         return json_encode(['category'=>$category]);
     }
 
@@ -47,7 +48,7 @@ class CategoryController extends Controller
     public function update(Request $request, string $id)
     {
         $category = Category::find($id);        
-        $category->name = $request->name;       
+        $category->namec = $request->namec;       
         $category->description =$request->description;
         $category->save();       
          return json_encode(['category'=>$category]);
@@ -60,7 +61,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);        
         $category->delete();         
-        $categories = DB::table('category')        
+        $categories = DB::table('categories')        
         ->select('category.*')
         ->get();
         return json_encode(['categories'=>$categories, 'success'=> true]);
