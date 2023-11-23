@@ -11,8 +11,16 @@
     <title>Pay Mode List</title>
   </head>
   <body>
-    <div class="container">    
-    <h1>Pay Mode List</h1>    
+    <x-app-layout>
+      <x-slot name="header">
+          <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+              {{ __('Products List') }}
+          </h2>
+      </x-slot>
+      <div class="py-12">
+          <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+              <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                  <div class="p-6 text-gray-900"> 
     <a href="{{route('paymodes.create') }}"
     class="btn btn-success"
     >Add</a>
@@ -49,6 +57,10 @@
         @endforeach    
     </tbody>
     </table>
-    </div>   
+  </div>
+</div>
+</div>
+</div>
+  </x-app-layout>  
   </body>
 </html>

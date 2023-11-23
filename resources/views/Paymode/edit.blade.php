@@ -19,8 +19,8 @@
       @csrf
   <div class="mb-3">
     <label for="id" class="form-label">Id</label>
-    <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id"
-    disabled="disabled" value="{{$paymode->id}}">
+    <input type="text" class="form-control" id="id" aria-describedby="idHelp" 
+    name="id" disabled="disabled" value="{{$paymode->id}}">
     <div id="idHelp" class="form-text">Pay mode Id</div>
   </div>
   <div class="mb-3">
@@ -28,15 +28,15 @@
     <input type="text" required class="form-control" id="name" aria-describedby="nameHelp"
     name="name" placeholder="Name." value="{{$paymode->name}}">
   </div>
-  <label for="description">Observation</label>
+  <label for="observation">Observation</label>
   <div class="mb-3">
     <input type="text" required class="form-control" id="observation" aria-describedby="observationHelp"
-    name="observation" placeholder="observation" value="{{$paymode->first_name}}">   
+    name="observation" placeholder="Observation" value="{{$paymode->observation}}">   
   </div>
   
   <div>
     <button type="submit" class="btn btn-primary">Save</button>
-    <a href="{{route('customers.index')}}" class="btn btn-warning">Cancel</a>
+    <a href="{{route('paymodes.index')}}" class="btn btn-warning">Cancel</a>
   </div>
   
 </form>

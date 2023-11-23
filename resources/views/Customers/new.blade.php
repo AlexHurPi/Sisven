@@ -24,7 +24,7 @@
   </div>
   <div class="mb-3">
     <label for="name" class="form-label">Document Number</label>
-    <input type="text" required class="form-control" id="document_number" aria-describedby="document_numberHelp"
+    <input type="number" required class="form-control" id="document_number" aria-describedby="document_numberHelp"
     name="document_number" placeholder="Document number.">
   </div>
   <label for="description">First Name</label>
@@ -44,17 +44,17 @@
   </div>
   <label for="description">Birthday</label>
   <div class="mb-3">
-    <input type="text" required class="form-control" id="birthday" aria-describedby="birthdayHelp"
+    <input type="date" required class="form-control" id="birthday" aria-describedby="birthdayHelp"
     name="birthday" placeholder="birthday">   
   </div>
   <label for="description">Phone Number</label>
   <div class="mb-3">
-    <input type="text" required class="form-control" id="phone_number" aria-describedby="phone_numberHelp"
+    <input type="number" required class="form-control" id="phone_number" aria-describedby="phone_numberHelp"
     name="phone_number" placeholder="phone_number">   
   </div>
   <label for="description">E-mail</label>
   <div class="mb-3">
-    <input type="text" required class="form-control" id="email" aria-describedby="emailHelp"
+    <input type="email" required class="form-control" id="email" aria-describedby="emailHelp"
     name="email" placeholder="email">   
   </div>
   <div>
