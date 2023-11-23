@@ -24,14 +24,16 @@
     <div id="idHelp" class="form-text">Category Id</div>
   </div>
   <div class="mb-3">
-    <label for="name" class="form-label">name</label>
-    <input type="text" required class="form-control" id="name" aria-describedby="nameHelp" placeholder="Category name."
-    name="name" value="{{$category->name}}">
+    <label for="namec" class="form-label">Category Name</label>
+    <input type="text" required class="form-control" id="namec" 
+    aria-describedby="namecHelp" placeholder="Category Name."
+    name="namec" value="{{$category->namec}}">
   </div>  
   <div class="mb-3">
     <label for="description" class="form-label">Description</label>
-    <input type="text" required class="form-control" id="description" aria-describedby="descriptionHelp"
-    name="description" placeholder="Description" value="{{$category->description}}">   
+    <input type="text" required class="form-control" id="description" 
+    aria-describedby="descriptionHelp" name="description" 
+    placeholder="Description" value="{{$category->description}}">   
   </div>
   <div>
     <button type="submit" class="btn btn-primary">Update</button>

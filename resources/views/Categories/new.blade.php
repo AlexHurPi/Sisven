@@ -18,14 +18,14 @@
       @csrf
   <div class="mb-3">
     <label for="id" class="form-label">Id</label>
-    <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id"
-    disabled="disabled">
-    <div id="idHelp" class="form-text">Category Id</div>
+    <input type="text" class="form-control" id="id" aria-describedby="idHelp" 
+    name="id" disabled="disabled">
+    <div for="id" id="idHelp" class="form-text">Category Id</div>
   </div>
   <div class="mb-3">
-    <label for="name" class="form-label">name</label>
-    <input type="text" required class="form-control" id="name" aria-describedby="nameHelp"
-    name="name" placeholder="Category name.">
+    <label for="namec" class="form-label">Category Name</label>
+    <input type="text" required class="form-control" id="namec" 
+    aria-describedby="namecHelp" name="namec" placeholder="Category name.">
   </div>
   <label for="description">Description</label>
   <div class="mb-3">

@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 64)->unique();
+            $table->string('namec', 64)->unique();// se nombra "namec" para evitar confusiones con las otras tablas que tambien tienen un campo llamdo name
             $table->text('description')->nulable();
             $table->timestamps();
         });

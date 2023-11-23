@@ -48,12 +48,12 @@
         id="stock" aria-describedby="stocklHelp"
          name="stock" placeholder="stock.">
       </div>     
-      <label for="CategoryId">Category Id:</label>
+      <label for="Category_id">Category:</label>
       <select class="form-select w-60 rounded-md focus:outline-none" 
-      id="categoryId" name="code" required>
+      id="category_id" name="category_id" required>
         <option selected disabled value="">Choose one...</option>
         @foreach ($categories as $category)
-        <option value="{{$category->id}}">{{$category->name}}</option>
+        <option value="{{$category->id}}">{{$category->namec}}</option>
       @endforeach
       </select>
         <div class="mt-3">

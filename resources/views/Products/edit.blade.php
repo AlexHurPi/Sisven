@@ -49,18 +49,16 @@
         id="stock" placeholder="Product stock"
         name="stock" value="{{$product->stock}}">
       </div>
-      <label for="categoryId">Category:</label>
+      <label for="category_id">Category:</label>
       <select class="form-select w-full rounded-md focus:outline-none" 
-      id="categoryId" name="categoryId" required>
+      id="category_id" name="category_id" required>
         <option selected disabled value="">Choose one...</option>
         @foreach ($categories as $category)
-        @if ($category->id ==$product->categoryId)
+        @if ($category->id ==$product->category_id)
         <option selected value="{{$category->id}}">{{$category->namec}}</option>
        @else
-       <option value="{{$category->id}}">{{$category->namec}}</option>
-          
-      @endif
-      
+       <option value="{{$category->id}}">{{$category->namec}}</option>          
+      @endif      
         @endforeach
       </select>
         <div class="mt-3">

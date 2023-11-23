@@ -14,8 +14,8 @@ class CategoryController extends Controller
     public function index()
     {         
        //$categories = Category::all();      
-       $categories =DB::table('category')       
-       ->select('category.*')
+       $categories =DB::table('categories')       
+       ->select('categories.*')
        ->get();
        return view("categories.index",['categories' => $categories]);
     }
@@ -25,8 +25,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories = DB::table('category')
-        ->orderBy('name')
+        $categories = DB::table('categories')
+        ->orderBy('namec')
         ->get();
         return view('categories.new',['categories'=>$categories]);
     }
@@ -37,13 +37,13 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $category = new Category();
-        $category ->id = $request -> id;
-        $category ->name =$request->name;
+        //$category ->id = $request -> id;
+        $category ->namec =$request->namec;
         $category ->description =$request->description;
-        $category->save();
+        $category ->save();
 
-        $categories = DB::table('category')       
-        ->select('category.*') 
+        $categories = DB::table('categories')       
+        ->select('categories.*') 
         ->get();
         return view('categories.index',['categories'=>$categories]);
     }
@@ -62,9 +62,9 @@ class CategoryController extends Controller
     public function edit(string $id)
     {
         $category = Category::find($id);
-        $categories = DB::table('category')
-        ->orderBy('name')
-        ->get();
+        /*$categories = DB::table('categories')
+        ->orderBy('namec')
+        ->get();*/
         return view('categories.edit',['category'=>$category]);
     }
 
@@ -75,12 +75,12 @@ class CategoryController extends Controller
     {
        $category = Category::find($id);
        //$category->id = $request->id; no va id porque este campo no se puede editar
-       $category->name = $request->name;       
+       $category->namec = $request->namec;       
        $category->description =$request->description;
        $category->save();
 
-       $categories = DB::table('category')       
-       ->select('category.*')
+       $categories = DB::table('categories')       
+       ->select('categories.*')
        ->get();
         return view('categories.index',['categories'=>$categories]);
     }
@@ -93,8 +93,8 @@ class CategoryController extends Controller
         $category = Category::find($id);        
         $category->delete();        
         
-        $categories = DB::table('category')        
-        ->select('category.*')
+        $categories = DB::table('categories')        
+        ->select('categories.*')
         ->get();
         return view('categories.index',['categories'=>$categories]);
     }

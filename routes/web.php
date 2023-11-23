@@ -57,7 +57,7 @@ Route::get('/dashboard', function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
         
     Route::get('/', function () {
-        return view('sisven');
+        return view('dashboard');
     });
 });
 

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\DB;
 use App\Http\Controllers\Controller;
-use app\Models\Product;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -15,10 +15,10 @@ class ProductController extends Controller
     public function index()
     {
         $products =DB::table('products')       
-        ->join('category', 'products.category_id', '=', 'category.name')
-        ->select('products.*', 'category.name')
+        ->join('categories', 'products.category_id', '=', 'categories.id')
+        ->select('products.*', "categories.namec")
         ->get();
-        return view('products.index',['products' => $products]);
+        return view('products.index',['products'=>$products]);
     }
 
     /**
@@ -26,8 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = DB::table('category')
-        ->orderBy("name")
+        $categories = DB::table('categories')
+        ->orderBy("namec")
         ->get();
         return view('products.new',['categories'=>$categories]);
     }
@@ -41,11 +41,11 @@ class ProductController extends Controller
         $product ->name =$request->name;
         $product ->price =$request->price;
         $product ->stock =$request->stock;
-        $product ->categoryId =$request->categoryId;
+        $product ->category_id =$request->category_id;
         $product->save();
 
         $products = DB::table('products')
-        ->join('categories', 'products.categoryId', '=', 'catyegories.id')
+        ->join('categories', 'products.category_id', '=', 'categories.id')
         ->select('products.*', "categories.namec")
         ->get();
         return view('products.index',['products'=>$products]);
@@ -81,11 +81,11 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->price = $request->price;
         $product->stock = $request->stock;
-        $product->categoryId = $request->categoryId;        
+        $product->category_id = $request->category_id;        
         $product->save();
  
         $products = DB::table('products')
-        ->join('categories', 'products.categoryId', '=', 'categories.id')
+        ->join('categories', 'products.category_id', '=', 'categories.id')
         ->select('products.*',"categories.namec")
         ->get();
          return view('products.index',['products'=>$products]);
@@ -100,7 +100,7 @@ class ProductController extends Controller
         $product->delete();        
         
         $products = DB::table('products')
-        ->join('categories', 'products.categoryId', '=', 'categories.id')
+        ->join('categories', 'products.category_id', '=', 'categories.id')
         ->select('products.*', "categories.namec")
         ->get();
         return view('products.index',['products'=>$products]);

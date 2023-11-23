@@ -44,7 +44,7 @@
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->price }}</td>
                                     <td>{{ $product->stock }}</td>
-                                    <td>{{ $product->categoryname }}</td>
+                                    <td>{{ $product->namec }}</td>
                                     <td>
                                         <a href="{{ route('products.edit', ['product' => $product->id]) }}"
                                             class="btn btn-info">
