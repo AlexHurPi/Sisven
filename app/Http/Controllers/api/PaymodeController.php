@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Models\PayMode;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\DB;
 
@@ -24,7 +25,12 @@ class PaymodeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paymode = new Paymode();       
+        $paymode ->name = $request->name;
+        $paymode ->observation =$request->observation;
+        $paymode->save();    
+           
+        return json_encode(['paymode'=>$paymode]);
     }
 
     /**
@@ -32,7 +38,8 @@ class PaymodeController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $paymode = Paymode::find($id);   
+        return json_encode(['paymode' => $paymode]);
     }
 
     /**
@@ -40,7 +47,11 @@ class PaymodeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $paymode = Paymode::find($id);        
+        $paymode->name = $request->name;       
+        $paymode->observation =$request->observation;
+        $paymode->save();       
+         return json_encode(['paymode'=>$paymode]);
     }
 
     /**
@@ -48,6 +59,11 @@ class PaymodeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $paymode = Paymode::find($id);        
+        $paymode->delete();         
+        $paymodes = DB::table('paymodes')        
+        ->select('paymode.*')
+        ->get();
+        return json_encode(['paymodes'=>$paymodes, 'success'=> true]);
     }
 }
