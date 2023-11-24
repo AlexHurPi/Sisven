@@ -25,7 +25,17 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $customer = new Customer();       
+        $customer ->document_number = $request->document_number;
+        $customer ->first_name = $request->first_name;
+        $customer ->last_name = $request->last_name;
+        $customer ->address = $request->address;
+        $customer ->birthday = $request->birthday;
+        $customer ->phone_number = $request->phone_number;
+        $customer ->email = $request->email;        
+        $customer->save();    
+           
+        return json_encode(['customer'=>$customer]);
     }
 
     /**
@@ -33,7 +43,8 @@ class CustomerController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $customer = Customer::find($id);   
+        return json_encode(['customer' => $customer]);
     }
 
     /**
@@ -41,7 +52,16 @@ class CustomerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $customer = Customer::find($id);        
+        $customer ->document_number = $request->document_number;
+        $customer ->first_name = $request->first_name;
+        $customer ->last_name = $request->last_name;
+        $customer ->address = $request->address;
+        $customer ->birthday = $request->birthday;
+        $customer ->phone_number = $request->phone_number;
+        $customer ->email = $request->email;   
+        $customer->save();       
+         return json_encode(['customer'=>$customer]);
     }
 
     /**
@@ -49,6 +69,11 @@ class CustomerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $customer = Customer::find($id);        
+        $customer->delete();         
+        $customer = DB::table('customers')        
+        ->select('customers.*')
+        ->get();
+        return json_encode(['customers'=>$customer, 'success'=> true]);
     }
 }
