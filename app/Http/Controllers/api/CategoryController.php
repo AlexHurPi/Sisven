@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories =DB::table('categories')       
-        ->select('categories.*')
+        $categories =DB::table('categories') 
+        ->orderBy('namec')         
         ->get();
         return json_encode(['categories' => $categories]); 
     }
