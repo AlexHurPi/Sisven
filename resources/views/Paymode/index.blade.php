@@ -14,9 +14,9 @@
   <body class="main">
     <x-app-layout>
       <x-slot name="header">
-          <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+          <h1 class="font-semibold text-xl text-gray-800 leading-tight">
               {{ __('PayMode List') }}
-          </h2>
+          </h1>
       </x-slot>
       <div class="py-12">
           <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -51,8 +51,15 @@
                   @method('delete')
                   @csrf
                   <input
-                  class="btn btn-danger" type="submit" value="Delete">
-              </form>            
+                  class="btn btn-danger" type="submit" value="Delete" onclick="confirmDelete(event)">
+              </form> 
+              <script>
+                function confirmDelete(event) {
+                    if (!confirm('¿Estás seguro de que deseas eliminar este metodo de pago?')) {
+                        event.preventDefault();
+                    }
+                }
+            </script>           
             </td>                
         </tr>
         @endforeach    

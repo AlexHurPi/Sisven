@@ -16,9 +16,9 @@
   <body class="main">
     <x-app-layout>
         <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h1 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Products List') }}
-            </h2>
+            </h1>
         </x-slot>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -58,8 +58,15 @@
                                             @csrf
                                             <input
                                                 class="btn btn-danger"
-                                                type="submit" value="Delete">
+                                                type="submit" value="Delete" onclick="confirmDelete(event)">
                                         </form>
+                                        <script>
+                                            function confirmDelete(event) {
+                                                if (!confirm('¿Estás seguro de que deseas eliminar este producto?')) {
+                                                    event.preventDefault();
+                                                }
+                                            }
+                                        </script>
                                     </td>
                                 </tr>
                                 @endforeach

@@ -13,10 +13,11 @@
   <body class="main">
     <x-app-layout>
       <x-slot name="header">
-          <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+          <h1 class="font-semibold text-xl text-gray-800 leading-tight">
               {{ __('Customers List') }}
-          </h2>
+          </h1>
       </x-slot>
+      <div class="contenedor"> 
       <div class="py-12">
           <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
               <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -55,18 +56,28 @@
                 Edit</a>
               <form
                   action="{{ route('customers.destroy', ['customer' => $customer->id]) }}"
-                  method='POST' style="display: inline-block">
+                  method='POST' style="display: inline-block"
+                  id="deleteForm">
+                  
                   @method('delete')
                   @csrf
                   <input
-                  class="btn btn-danger" type="submit" value="Delete">
-              </form>            
+                  class="btn btn-danger" type="submit" value="Delete" onclick="confirmDelete(event)">
+              </form>    
+              <script>
+                function confirmDelete(event) {
+                    if (!confirm('¿Estás seguro de que deseas eliminar este cliente?')) {
+                        event.preventDefault();
+                    }
+                }
+            </script>        
             </td>                
         </tr>
         @endforeach    
     </tbody>
     </table>
   </div>
+</div>
 </div>
 </div>
 </div>

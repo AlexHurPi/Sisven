@@ -1,12 +1,74 @@
-.main h2{
-background: blueviolet;
-color: white;
+.contenedor{
+  background: linear-gradient(to left, aqua, yellow, blueviolet 80%);
+}
+
+.main h1{
+
+color: blueviolet;
+text-shadow: 1px 1px 5px rgb(57, 56, 56), 0 0 22px red;
+font-size: xx-large;
 border-radius: 20px;
 text-align: center;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+.main h2{    
+        text-align: center;
+        font-weight: bolder;
+        color: blueviolet;
+    }
 .main input{
 background-color:rgb(216, 72, 72);
 }
-.dash image{
+.image{
+    display: flex;;
+    justify-content: center;
+    align-items: center;
+    margin: 0,5,0,5;
     
-}   
+}
+#ImagenTienda{
+border: 10px ridge;
+
+}
+#slogan{
+    text-align: center;
+    color: brown; 
+    font-weight: bold;
+}
+.parrafo1{  
+    margin-right: 150px;  
+    background-color: burlywood;
+    height: 200px;
+    width: 300px;
+    border-radius: 15px 0px 15px 0px;
+    padding: 10px;
+    border: 20px solid blueviolet;
+    border-image: url('/imagenes/marco.png');
+    border-image-slice: 25%; 
+    border-image-repeat: round;
+    border-image-outset: 30px;
+}
+.parrafo1 p{
+    text-align: justify;
+}
+.parrafo2{
+    margin-left: 150px;
+    background-color: burlywood;
+    background-clip: content-box;
+    border: 5px solid blueviolet;
+    height: 200px;
+    width: 200px;
+    border-radius: 15px 0px 15px 0px;
+    padding: 10px;    
+    
+}.parrafo2 p{
+    text-align: justify;
+}
+#carne{
+    width: 200px;   
+}
+.productos{
+    display: flex;
+    justify-content: center;    
+    align-items: center;    
+}
