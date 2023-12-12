@@ -1,7 +1,7 @@
-.contenedor{
-  background: linear-gradient(to left, aqua, yellow, blueviolet 80%);
+.contenedor{    
+    background: linear-gradient(to left, aqua, yellow, blueviolet 80%);
+    background-size: cover;
 }
-
 .main h1{
 
 color: blueviolet;
@@ -47,6 +47,7 @@ border: 10px ridge;
     border-image-slice: 25%; 
     border-image-repeat: round;
     border-image-outset: 30px;
+
 }
 .parrafo1 p{
     text-align: justify;
@@ -71,4 +72,10 @@ border: 10px ridge;
     display: flex;
     justify-content: center;    
     align-items: center;    
+}
+.Iconos{
+    display: flex;
+    justify-content: center;    
+    align-items: center; 
+    gap:20px; 
 }
