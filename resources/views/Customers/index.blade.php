@@ -51,9 +51,11 @@
             <td>{{ $customer->phone_number }}</td>
             <td>{{ $customer->email }}</td>
             <td> 
-              <a href="{{ route('customers.edit', ['customer' => $customer->id]) }}"
-                class="btn btn-info">
-                Edit</a>
+              
+                <a href="{{ route('customers.edit', ['customer' => $customer->id]) }}"
+                  class="btn btn-info">
+                  Edit</a>
+                          
               <form
                   action="{{ route('customers.destroy', ['customer' => $customer->id]) }}"
                   method='POST' style="display: inline-block"

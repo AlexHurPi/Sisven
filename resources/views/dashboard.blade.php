@@ -8,18 +8,20 @@
     <link rel="stylesheet" type="text/css" href="../css/estilos2.css">
     <title>Tienda</title>
 </head>
-<body class="main">
-    <x-app-layout> 
-        <br>           
+<body class="main"> 
+     
+    <x-app-layout>  
+        <br>               
         <div class="contenedor"> 
-                <br>
+            <x-slot name="header"> 
+                
                 <h1 class="font-semibold text-xl text-gray-800 leading-tight">
                     {{ __('Welcome to the Store') }} 
-                </h1>
-                <br>
-                <h2>{{ __("You're logged in!") }}</h2>
-                <br>     
-            <div class="image">
+                </h1>               
+                <h2>{{ __("You're logged in!") }}</h2>                               
+            </x-slot>           
+            <br>
+            <div class="image">                
                 <div class="parrafo1">
                     <h2>Administre su negocio</h2>
                     <p>Desde esta pagina puede administrar su negocio infresando toda la informacion referente a el.</p>         
@@ -29,17 +31,15 @@
                     <h2>Modernice su negocio</h2>                        
                     <p>Controle ingresos, egresos y ventas en este sitio el cual llevara todas sus cuentas por usted.</p> 
                 </div>                                            
+            </div>    
+            <div class="productos">     
+                <img src="imagenes/carritoCompras.png" alt="Imagen carrito compras" id="carritocompras">
+                    <img src="imagenes/frutas.png" alt="Imagen productos" id="frutas">                                                                                             
+                    <img src="imagenes/carne.png" alt="Imagen carne" id="carne">                       
+                    <img src="imagenes/lacteos2.png" alt="Imagen lacteos" id="lacteos">       
             </div>           
-                <div class="productos">                
-                    <img src="imagenes/carne.png" alt="" id="carne">
-                    <img src="imagenes/Lacteos2.png" alt="" id="carne">
-                    <img src="imagenes/Legumbres.png" alt="" id="carne"> 
-                    <video width="240" height="240" controls>
-                        <source src="Videos/Alan Walker - Faded 1080p.mp4" type="video/mp4">
-                        Tu navegador no soporta el elemento de video.
-                    </video>                                                         
-            </div>                 
        </div>
+       <br>
        <br>
        <div class="Iconos">
         <a href="https://www.facebook.com/?locale=es_LA">
@@ -64,7 +64,6 @@
         </a>
        </div>   
        <br>    
-    </x-app-layout>   
-    
+    </x-app-layout>    
 </body>
 </html>
